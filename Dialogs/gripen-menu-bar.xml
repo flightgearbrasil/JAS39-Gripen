@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <default>
+    <menu n="10">
+      <label>JAS 39 Gripen</label>
+      <enabled type="bool">true</enabled>
+
+      <item>
+        <label>AutoStart</label>
+        <binding>
+          <command>nasal</command>
+          <script>engines.jet.autostart();</script>
+        </binding>
+      </item>
+      <item>
+        <label>Aircraft Options</label>
+        <binding>
+          <command>nasal</command>
+          <script>
+            var gripdlg = gui.Dialog.new("/sim/gui/dialogs/gripdlg/dialog","Aircraft/JAS39-Gripen/Dialogs/gripen-menu.xml");
+            gripdlg.open();
+          </script>
+        </binding>
+      </item>
+      <!--item>
+        <label>Select Livery</label>
+        <binding>
+          <command>nasal</command>
+          <script>aircraft.livery.dialog.toggle()</script>
+        </binding>
+      </item>
+
+      <item>
+        <label>Toggle Fuselage Shader</label>
+        <binding>
+          <command>nasal</command>
+          <script>if (getprop("/sim/rendering/refl_correction") == 0) setprop("/sim/rendering/refl_correction", -1); else setprop("/sim/rendering/refl_correction", 0);</script>
+        </binding>
+      </item-->
+
+<!--
+      <item>
+        <label>Immatriculation</label>
+        <binding>
+          <command>nasal</command>
+          <script>dr400.immat_dialog.toggle()</script>
+        </binding>
+      </item>
+-->
+    </menu>
+  </default>
+
+</PropertyList>
+

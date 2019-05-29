@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList include="gripenng-base-jsbsim.xml">
+
+  <sim>
+    <description>SAAB Jas 39 Gripen E NG (JSBSim)</description>
+    <author>Emmanuel BARANGER (3D) RenanMsV (FDM)</author>
+    <flight-model>jsb</flight-model>
+    <aero>gripenng-jsbsim</aero>
+    <variant-of>gripen-yasim</variant-of>
+    <previews>
+    	<preview>
+    		<type>exterior</type>
+    		<splash type="bool">true</splash>
+    		<path>Splashs/gripen-splash.png</path>
+    	</preview>
+    	<preview>
+    		<type>exterior</type>
+    		<splash type="bool">true</splash>
+    		<path>Splashs/gripen-splash2.png</path>
+    	</preview>
+    </previews>
+  </sim>
+
+</PropertyList>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">FAB Digital Camo</name>
+        <texture>Liveries/FAB_digital_camo.png</texture>
+
+      </livery>
+    </model>
+  </sim>
+
+</PropertyList>

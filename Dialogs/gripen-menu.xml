@@ -1,0 +1,258 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+  <name>gripenmenu</name>
+  <layout>vbox</layout>
+  <draggable>true</draggable>
+  <resizable>false</resizable>
+
+
+  <text>
+    <label>Aircraft Options</label>
+  </text>
+
+  <hrule/>
+  <text>
+    <label>Lights</label>
+  </text>
+
+  <checkbox>
+    <label>Landing Lights On/Off</label>
+    <property>/controls/lighting/landing-lights</property>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/lighting/landing-lights</property>
+    </binding>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/switches/switch</property>
+    </binding>
+    <live>true</live>
+    <halign>left</halign>
+  </checkbox>
+  
+  <checkbox>
+    <label>Beacon Lights On/Off</label>
+    <property>/controls/lighting/beacon</property>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/lighting/beacon</property>
+    </binding>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/switches/switch</property>
+    </binding>
+    <live>true</live>
+    <halign>left</halign>
+  </checkbox>
+
+  <checkbox>
+    <label>Strobe Lights On/Off</label>
+    <property>/controls/lighting/strobe</property>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/lighting/strobe</property>
+    </binding>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/switches/switch</property>
+    </binding>
+    <live>true</live>
+    <halign>left</halign>
+  </checkbox>
+
+  <checkbox>
+    <label>Navigation Lights On/Off</label>
+    <property>/controls/lighting/nav-lights</property>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/lighting/nav-lights</property>
+    </binding>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/switches/switch</property>
+    </binding>
+    <live>true</live>
+    <halign>left</halign>
+  </checkbox>
+
+  <hrule/>
+
+  <!--text>
+    <label>Airport Operations</label>
+  </text>
+
+  <group>
+    <layout>vbox</layout>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Chocks</label>
+      <property>sim/multiplay/generic/int[8]</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/multiplay/generic/int[8]</property>
+      </binding>
+    </checkbox>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Engine Safety Cones</label>
+      <property>sim/multiplay/generic/int[10]</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/multiplay/generic/int[10]</property>
+      </binding>
+    </checkbox>
+
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Engine Protection</label>
+      <property>sim/multiplay/generic/int[7]</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/multiplay/generic/int[7]</property>
+      </binding>
+    </checkbox>
+
+    <checkbox>
+      <halign>left</halign>
+      <label>GPU</label>
+      <property>sim/multiplay/generic/int[11]</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/multiplay/generic/int[11]</property>
+      </binding>
+    </checkbox> 
+
+    <checkbox>
+      <halign>left</halign>
+      <label>Fuel Truck</label>
+      <property>sim/multiplay/generic/int[9]</property>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/multiplay/generic/int[9]</property>
+      </binding>
+    </checkbox>
+
+    <button>
+      <align>center</align>
+      <legend>Pushback</legend>
+      <binding>
+        <command>dialog-show</command>
+        <dialog-name>pushback</dialog-name>
+      </binding>
+    </button>
+    
+  </group>
+
+  <hrule/-->
+
+  <text>
+    <label>Fuselage Effect</label>
+  </text>
+
+  <button>
+    <legend>Toggle Shader</legend>
+    <binding>
+      <command>nasal</command>
+      <script>if (getprop("/sim/rendering/refl_correction") != -1) setprop("/sim/rendering/refl_correction", -1); else setprop("/sim/rendering/refl_correction", 0);</script>
+    </binding>
+  </button>
+  <text>
+    <label>Shader Level</label>
+  </text>
+  <group>
+  <layout>hbox</layout>
+  <button>
+    <legend>+</legend>
+    <binding>
+      <command>nasal</command>
+      <script>var value = getprop("/sim/rendering/refl_correction"); value = math.max(-1, math.min(1, value + 0.1)); setprop("/sim/rendering/refl_correction", value);</script>
+    </binding>
+  </button>
+
+  <text>
+   <label>-9.99</label> <!-- placeholder for width -->
+   <format>%-0.2f</format>
+   <property>/sim/rendering/refl_correction</property>
+   <live>true</live>
+  </text>
+
+  <button>
+    <legend>-</legend>
+    <binding>
+      <command>nasal</command>
+      <script>var value = getprop("/sim/rendering/refl_correction"); value = math.max(-1, math.min(1, value + -0.1)); setprop("/sim/rendering/refl_correction", value);</script>
+    </binding>
+  </button>
+  </group>
+
+  <text>
+    <label>Shader Type</label>
+  </text>
+
+  <group>
+    <layout>hbox</layout>
+    <button>
+      <legend>1</legend>
+      <binding>
+        <command>nasal</command>
+        <script>setprop("/sim/rendering/refl-type", "1.0");</script>
+      </binding>
+    </button>
+    <button>
+      <legend>2 [ALS]</legend>
+      <binding>
+        <command>nasal</command>
+        <script>setprop("/sim/rendering/refl-type", "2.0");</script>
+      </binding>
+    </button>
+  </group>
+
+  <hrule/>
+
+  <text>
+    <label>Others</label>
+  </text>
+
+  <checkbox>
+    <label>Pilot Human Body On/Off</label>
+    <property>/sim/model/pilot</property>
+    <binding>
+      <command>property-toggle</command>
+      <property>/sim/model/pilot</property>
+    </binding>
+    <live>true</live>
+    <halign>left</halign>
+  </checkbox>
+
+  <button>
+    <legend>Livery</legend>
+    <binding>
+      <command>nasal</command>
+      <script>aircraft.livery.dialog.toggle()</script>
+    </binding>
+  </button>
+
+  <hrule/>
+
+  <group>
+    <layout>hbox</layout>
+    <empty><stretch>true</stretch></empty>
+
+    <button>
+      <legend>Close</legend>
+      <default>true</default>
+      <key>Esc</key>
+      <binding>
+        <command>dialog-close</command>
+      </binding>
+    </button>
+
+    <empty><stretch>true</stretch></empty>
+  </group> 
+
+</PropertyList>
+
